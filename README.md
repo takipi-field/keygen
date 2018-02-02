@@ -16,6 +16,8 @@ Usage
 ======
 USERNAME and PASSWORD are the ones you use to login to OverOps app (https://app.overops.com)<br/>
 
-```java -jar keygen-1.2.0-jar-with-dependencies.jar USERNAME PASSWORD```
+URL defaults to https://app.overops.com if left off.  
+
+```java -jar keygen-1.2.0-jar-with-dependencies.jar USERNAME PASSWORD URL```
 
 ----------
