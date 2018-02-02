@@ -18,8 +18,13 @@ public class Main
 			return;
 		}
 		
+
+		
 		String username 	= args[0];
 		String password 	= args[1];
+		String baseURL = "";
+		if  (args.length > 2)
+			baseURL = args[2];
 		
 		if ((username.isEmpty()) || (password.isEmpty()))
 		{
@@ -30,9 +35,12 @@ public class Main
 			return;
 		}
 		
+		if (baseURL.isEmpty())
+			baseURL="https://app.overops.com";
+		
 		String proxy = "";
 		
-		String keyPrefix = TakipiCom.generateKeyPrefix(username, password);
+		String keyPrefix = TakipiCom.generateKeyPrefix(username, password, baseURL);
 		
 		if (keyPrefix == null)
 		{
@@ -49,7 +57,8 @@ public class Main
 	
 	private static void printUsage()
 	{
-		System.out.println("Usage: USERNAME PASSWORD");
-		System.out.println("Example: john@example.com Pa$$woRd");
+		System.out.println("Usage: USERNAME PASSWORD URL");
+		System.out.println("Example: john@example.com Pa$$woRd http://localhost:8080");
+		System.out.println("URL defaults to https://app.overops.com if left off" );
 	}
 }

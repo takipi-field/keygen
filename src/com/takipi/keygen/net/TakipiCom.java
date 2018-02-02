@@ -7,14 +7,18 @@ import java.net.URL;
 
 public class TakipiCom
 {
-	public static String TAKIPI_BASE_URL	= "https://app.overops.com";
-	public static String GENERATE_SERVLET	= TAKIPI_BASE_URL + "/app/keygen/generate";
+
+// 	Remove hardcoded baseURL
+//	public static String TAKIPI_BASE_URL	= "https://app.overops.com";
+//	public static String GENERATE_SERVLET	= TAKIPI_BASE_URL + "/app/keygen/generate";
 	public static String REQUEST_METHOD		= "POST";
 	
-	public static String generateKeyPrefix(String username, String password)
+	public static String generateKeyPrefix(String username, String password, String baseURL)
 	{
 		try
 		{
+			
+			String GENERATE_SERVLET	= baseURL + "/app/keygen/generate";
 			URL url = new URL(GENERATE_SERVLET);
 			
 			HttpURLConnection httpCon = (HttpURLConnection)url.openConnection();
